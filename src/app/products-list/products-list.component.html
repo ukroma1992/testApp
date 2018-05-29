@@ -1,22 +1,25 @@
-<mat-grid-list cols="2" rowHeight="1:1">
-  <mat-grid-tile *ngFor="let product of products">
-    <div>
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{product.name}}</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-          <img mat-card-image class="img-card" src="{{product.img}}" alt="Photo product">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>{{product.link}}</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </mat-grid-tile>     
-</mat-grid-list>
+<div class="container">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" [(ngModel)]="textSearch" name="search">
+    </mat-form-field>
+  </form>
+    <mat-divider></mat-divider>
+    <mat-grid-list cols="2" rowHeight="1:1">
+            <mat-grid-tile *ngFor = "let product of products |filter:textSearch">
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title>{{product.name}}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image class="img-card" src="{{product.img}}" alt="Photo product">
+                <mat-chip-list>
+                  <mat-chip color="primary" selected="true">{{product.price}}$</mat-chip>
+                  <mat-chip color="accent" selected="true">{{product.bsr_category}}</mat-chip>
+                </mat-chip-list>
+               <mat-card-actions>
+                 <button mat-button>{{product.link}}</button>
+               </mat-card-actions>
+              </mat-card>
+            </mat-grid-tile> 
+    </mat-grid-list>       
+</div>

@@ -11,6 +11,7 @@ import { ProductService } from './../product.service';
 export class ProductsListComponent implements OnInit {
 
   public products = [];
+  public textSearch = '';
   public errorMsg;
   constructor(private _productService: ProductService) { }
 
@@ -19,7 +20,4 @@ export class ProductsListComponent implements OnInit {
       .subscribe(data => this.products = data,
                 error => this.errorMsg = error);
   }
-
-
-
 }
