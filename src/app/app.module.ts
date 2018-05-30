@@ -9,7 +9,13 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductService } from './product.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule, MatGridListModule, MatInputModule, MatDividerModule, MatChipsModule } from '@angular/material';
+import { MatButtonModule, 
+         MatCardModule, 
+         MatGridListModule, 
+         MatInputModule, 
+         MatDividerModule, 
+         MatChipsModule,
+         MatToolbarModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -28,7 +34,8 @@ import { MatButtonModule, MatCardModule, MatGridListModule, MatInputModule, MatD
     ReactiveFormsModule,
     MatInputModule,
     MatDividerModule,
-    MatChipsModule
+    MatChipsModule, 
+    MatToolbarModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
