@@ -9,13 +9,13 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductService } from './product.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, 
-         MatCardModule, 
-         MatGridListModule, 
+import { MatButtonModule,  
          MatInputModule, 
          MatDividerModule, 
          MatChipsModule,
-         MatToolbarModule } from '@angular/material';
+         MatToolbarModule,
+         MatListModule,
+         MatSelectModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -28,14 +28,14 @@ import { MatButtonModule,
     Ng2SearchPipeModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatCardModule,
-    MatGridListModule,
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
     MatDividerModule,
     MatChipsModule, 
-    MatToolbarModule
+    MatToolbarModule,
+    MatListModule,
+    MatSelectModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

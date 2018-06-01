@@ -6,21 +6,38 @@
   </form>
 </mat-toolbar>
 
-<mat-grid-list cols="2" rowHeight="1:1">
-  <mat-grid-tile *ngFor = "let product of products |filter:textSearch">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title>{{product.name}}</mat-card-title>
-      </mat-card-header>
-      <mat-divider></mat-divider>
-      <img mat-card-image src="{{product.img}}" alt="Photo product">
-      <mat-chip-list>
-        <mat-chip color="primary" selected="true">{{product.price}}$</mat-chip>
-        <mat-chip color="accent" selected="true">{{product.bsr_category}}</mat-chip>
-      </mat-chip-list>
-      <mat-card-actions>
-        <button mat-button><a href="{{product.link}}">Link</a></button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile> 
-</mat-grid-list>
+<form>
+  <mat-form-field>
+    <mat-select placeholder="Categories" [(ngModel)]="selectedValue" name="category">
+      <mat-option *ngFor="let category of categories" [value]="category">
+        {{category}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<div *ngFor="let product of products | filter:textSearch">
+  <div *ngIf="selectedValue === 'All'">
+    <mat-list>
+      <mat-list-item>
+        <h5 mat-line>{{product.name}}</h5>
+        <mat-chip-list>
+          <mat-chip color="primary" selected="true">{{product.price}}$</mat-chip>
+          <mat-chip color="accent" selected="true">{{product.bsr_category}}</mat-chip>
+        </mat-chip-list>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+  <div *ngIf="selectedValue  === product.bsr_category">
+    <mat-list>
+      <mat-list-item>
+        <h5 mat-line>{{product.name}}</h5>
+        <mat-chip-list>
+          <mat-chip color="primary" selected="true">{{product.price}}$</mat-chip>
+          <mat-chip color="accent" selected="true">{{product.bsr_category}}</mat-chip>
+        </mat-chip-list>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
